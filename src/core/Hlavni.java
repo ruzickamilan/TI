@@ -104,13 +104,13 @@ public class Hlavni extends JFrame {
 		public void actionPerformed(ActionEvent e) {
 			switch (pocet_kliku) {
 				case 0: 
-					stopky.setBarva(Color.YELLOW); 
+					stopky.setBarva(Color.RED); 
 					stopky.setIndex(2); 
 					stopky.repaint();
 					pocet_kliku++;
 					break;
 				case 1: 
-					stopky.setBarva(Color.PINK); 
+					stopky.setBarva(Color.RED); 
 					stopky.setIndex(1); 
 					stopky.repaint(); 
 					pocet_kliku++;
