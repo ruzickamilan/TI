@@ -1,27 +1,32 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package core;
 
 import java.awt.*;
 
 /**
- * T��da SegmentoveCislo p�ijme do konstruktoru cas ve stringu, grafick� kontext a barvu/index dan� ��sti
- * m�du dig. hodinek a vykresl� na p�edan� grafick� kontext �as v sedmisegmentov�m tvaru
+ * Třída SegmentoveCislo přijme do konstruktoru cas ve stringu, grafický kontext a barvu/index dané části
+ * módu dig. hodinek a vykreslí na předaný grafický kontext čas v sedmisegmentovém tvaru
  * 
- * @author Milan R�i�ka
+ * @author Milan Růžička
  */
 public class SegmentoveCislo {
-	/** �as, kter� se bude vykreslovat */
+	/** Čas, který se bude vykreslovat */
 	private String cas;
-	/** Barva p�sma dig. hodin */
+	/** Barva písma dig. hodin */
 	private Color barva_pisma;
 	
 	/**
-	 * Z�kladn� konstruktor t�to t��dy, rozsek� �as na jednotliv� pozice(hh:mm:ss) a zavol� si metodu 
-	 * vykresli pro vykreslen� dan� ��sti �asu
+	 * Základní konstruktor této třídy, rozseká čas na jednotlivé pozice(hh:mm:ss) a zavolá si metodu 
+	 * vykresli pro vykreslení dané části času
 	 * 
-	 * @param cas Cel� �as ve stringu
-	 * @param g2 Grafick� kontext
-	 * @param barva Barva ��sti �asu (se kterou se manipuluje pomoc� Start/Stop)
-	 * @param index Index ��sti �asu (se kterou se manipuluje pomoc� Start/Stop)
+	 * @param cas Celý čas ve stringu
+	 * @param g2 Grafický kontext
+	 * @param barva Barva části času (se kterou se manipuluje pomocí Start/Stop)
+	 * @param index Index části času (se kterou se manipuluje pomocí Start/Stop)
 	 */
 	public SegmentoveCislo(String cas, Graphics2D g2, Color barva, int index) {
 		this.cas = cas;
@@ -33,12 +38,12 @@ public class SegmentoveCislo {
 	}
 	
 	/**
-	 * Metoda kter� vykresluje postupn� jednotliv� ��slice �asu. Jsou zde nadefinov�ny v�echny sou�adnice
-	 * d�lk� sedmisegmentov�ho p�sma a dle ��slice se d�lky vykresluj�
+	 * Metoda která vykresluje postupně jednotlivé číslice času. Jsou zde nadefinovány všechny souřadnice
+	 * dílků sedmisegmentového písma a dle číslice se dílky vykreslují
 	 * 
-	 * @param g2 Grafick� kontext
-	 * @param cislo ��slo kter� cheme vykreslit
-	 * @param posun Posun o kter� se posune ��slo doprava (aby se ��sla nep�ekr�vala a tvo�ila opravdu �as)
+	 * @param g2 Grafický kontext
+	 * @param cislo Číslo které cheme vykreslit
+	 * @param posun Posun o který se posune číslo doprava (aby se čísla nepřekrývala a tvořila opravdu čas)
 	 */
 	public void vykresliSegmentoveCislo(Graphics2D g2, int cislo, int posun) {
 		int[] dilek1X = {10+posun,15+posun,30+posun,35+posun,30+posun,15+posun};
@@ -128,13 +133,13 @@ public class SegmentoveCislo {
 	}
 	
 	/**
-	 * Metoda kter� si vol� o vykreslen� jednotliv�ch ��slic metod� vykresliSegmentovaciCislo
+	 * Metoda která si volá o vykreslení jednotlivých číslic metodě vykresliSegmentovaciCislo
 	 * 
-	 * @param g2 Grafick� kontext
-	 * @param cislo Po�adovan� dvou��sl� z �asu kter� chceme vykreslit
-	 * @param pozice Pozice na kter� chceme dvou��sl� vykreslit (hh:mm:ss) -> (0:1:2)
-	 * @param barva Barva ��sti �asu (se kterou se manipuluje pomoc� Start/Stop)
-	 * @param index Index ��sti �asu (se kterou se manipuluje pomoc� Start/Stop)
+	 * @param g2 Grafický kontext
+	 * @param cislo Požadované dvoučíslí z času které chceme vykreslit
+	 * @param pozice Pozice na které chceme dvoučíslí vykreslit (hh:mm:ss) -> (0:1:2)
+	 * @param barva Barva části času (se kterou se manipuluje pomocí Start/Stop)
+	 * @param index Index části času (se kterou se manipuluje pomocí Start/Stop)
 	 */
 	public void vykresli(Graphics2D g2, int cislo, int pozice, Color barva, int index) {
 		if (index == 3)

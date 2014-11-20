@@ -1,3 +1,8 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package core;
 
 import java.awt.*;
@@ -7,21 +12,21 @@ import java.text.*;
 import javax.swing.*;
 
 /**
- * T��da kter� se star� o vykreslen� panelu s �asem
+ * Třída která se stará o vykreslení panelu s časem
  * 
- * @author Milan R�i�ka
+ * @author Milan Růžička
  */
 public class Stopky extends JPanel {
 	private static final long serialVersionUID = 1L;
-	/** M�d dig. hodin -> 0 = dig. hodiny, 1 = stopky */
+	/** Mód dig. hodin -> 0 = dig. hodiny, 1 = stopky */
 	private int mode = 0;
-	/** aktu�ln� nastavan� �as dig. hodin */
+	/** aktuální nastavaný čas dig. hodin */
 	private Time time = new Time(1000*60*60*(-1));
-	/** aktu�ln� �as stopek */
+	/** aktuální čas stopek */
 	private Time stopky = new Time(1000*60*60*(-1));
-	/** barva ��sti �asu (se kterou se manipuluje pomoc� Start/Stop) */
+	/** barva části času (se kterou se manipuluje pomocí Start/Stop) */
 	private Color barva_hodnoty_kterou_menis = Color.GREEN;
-	/** index ��sti �asu (se kterou se manipuluje pomoc� Start/Stop) */
+	/** index části času (se kterou se manipuluje pomocí Start/Stop) */
 	private int index = 0;
 	
 	public int getMode() {
@@ -55,11 +60,11 @@ public class Stopky extends JPanel {
 		this.index = index;
 	}
 
-	/** Form�t �asu kter� chceme */
+	/** Formát času který chceme */
 	DateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
 	
 	/**
-	 * Vykreslen� panelu
+	 * Vykreslení panelu
 	 */
 	public Stopky() {
 		JPanel displej = new JPanel();
@@ -69,7 +74,7 @@ public class Stopky extends JPanel {
 	}
 	
 	/**
-	 * Pl�tno, vol� si metodu paint2D
+	 * Plátno, volá si metodu paint2D
 	 */
 	public void paint(Graphics g) {
 		super.paint(g);
@@ -77,9 +82,9 @@ public class Stopky extends JPanel {
 	}
 	
 	/**
-	 * Zde se kresl� na panel
+	 * Zde se kreslí na panel
 	 * 
-	 * @param g2 Grafick� kontext
+	 * @param g2 Grafický kontext
 	 */
 	public void paint2D(Graphics2D g2) {
 		if (mode == 0) {
@@ -94,3 +99,4 @@ public class Stopky extends JPanel {
 		}
 	}
 }
+

@@ -1,3 +1,8 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package core;
 
 import java.awt.*;
@@ -10,7 +15,7 @@ import javax.swing.*;
 
 /**
  * 
- * @author Milan R�i�ka
+ * @author Milan Růžička
  */
 public class Hlavni extends JFrame {
 	private static final long serialVersionUID = 1L;
@@ -18,15 +23,15 @@ public class Hlavni extends JFrame {
 	private Timer timer1 = new Timer();
 	/** Timer pro stopky */
 	private Timer timer2;
-	/** Panel s �asem/stopkama */
+	/** Panel s časem/stopkama */
 	private Stopky stopky = new Stopky();
-	/** Po�et kliknut� na tla��tko Mode */
+	/** Počet kliknutí na tlačítko Mode */
 	private int pocet_kliku = 0;
-	/** Po�et kliknut� na tla��tko Stop (pro vynulov�n� stopek) */
+	/** Počet kliknutí na tlačítko Stop (pro vynulování stopek) */
 	private int vynulovani_stopek = 0;
 
 	/**
-	 * Konstruktor Hlavn� t��dy, nadefinov�n� vzhledu okna a b�� zde timer pro dig. hodiny
+	 * Konstruktor Hlavní třídy, nadefinování vzhledu okna a běží zde timer pro dig. hodiny
 	 */
 	public Hlavni() {
 		this.setTitle("Stopky");
@@ -44,11 +49,11 @@ public class Hlavni extends JFrame {
 		timer1.schedule(new TimerTask() {
 			@Override
 			public void run() {
-				//Nastav� se �as o jednu sekundu v�t��
-				// .getTime().getTime() je tu proto aby mi to vr�tilo milisekundy
-				// jenom .getTime() vr�t� �as ve form�tu Time (m�j getter ze t��dy Stopky)
+				//Nastaví se čas o jednu sekundu větší
+				// .getTime().getTime() je tu proto aby mi to vrátilo milisekundy
+				// jenom .getTime() vrátí čas ve formátu Time (můj getter ze třídy Stopky)
 				stopky.setTime(new Time(stopky.getTime().getTime()+1000));
-				//aby se �as p�ekresoval tam kde m� (lze poznat dle konzole �e to funguje)
+				//aby se čas překresoval tam kde má (lze poznat dle konzole že to funguje)
 				if (stopky.getMode() == 0)
 					stopky.repaint();
 			}
@@ -56,9 +61,9 @@ public class Hlavni extends JFrame {
 	}
 	
 	/**
-	 * Lev� panel se tla��tkem Mode
+	 * Levý panel se tlačítkem Mode
 	 * 
-	 * @return Panel s tla��tkem Mode
+	 * @return Panel s tlačítkem Mode
 	 */
 	Component levaTlacitka() {
 		JPanel tlacitka = new JPanel();
@@ -73,9 +78,9 @@ public class Hlavni extends JFrame {
 	}
 	
 	/**
-	 * Prav� panel s tla��tky Start a Stop
+	 * Pravý panel s tlačítky Start a Stop
 	 * 
-	 * @return Panel s tla��tky Start a Stop
+	 * @return Panel s tlačítky Start a Stop
 	 */
 	Component pravaTlacitka() {
 		JPanel tlacitka = new JPanel();
@@ -93,9 +98,9 @@ public class Hlavni extends JFrame {
 	}
 	
 	/**
-	 * Slou�� k p�ep�n�n� mezi stavy aplikace (m�n� se barvi�ky, pocet_kliku -> pro tla��tka Start/Stop)
+	 * Slouží k přepínání mezi stavy aplikace (mění se barvičky, pocet_kliku -> pro tlačítka Start/Stop)
 	 * 
-	 * @author Milan R�i�ka
+	 * @author Milan Růžička
 	 */
 	class Mode extends AbstractAction {
 		private static final long serialVersionUID = 1L;
@@ -104,13 +109,13 @@ public class Hlavni extends JFrame {
 		public void actionPerformed(ActionEvent e) {
 			switch (pocet_kliku) {
 				case 0: 
-					stopky.setBarva(Color.RED); 
+					stopky.setBarva(Color.YELLOW); 
 					stopky.setIndex(2); 
 					stopky.repaint();
 					pocet_kliku++;
 					break;
 				case 1: 
-					stopky.setBarva(Color.RED); 
+					stopky.setBarva(Color.PINK); 
 					stopky.setIndex(1); 
 					stopky.repaint(); 
 					pocet_kliku++;
@@ -139,15 +144,15 @@ public class Hlavni extends JFrame {
 		
 		public Mode() {
             putValue(NAME, "Mode");
-            putValue(SHORT_DESCRIPTION, "P�epnut� re�imu stopek (ALT+M)");
+            putValue(SHORT_DESCRIPTION, "Přepnutí režimu stopek (ALT+M)");
             putValue(MNEMONIC_KEY, new Integer(KeyEvent.VK_M));
         }
 	}
 	
 	/**
-	 * Zde se p�id�vaj� sekundy/minuty/hodiny dle pocet_kliku na Mode a spou�t� se zde stopky
+	 * Zde se přidávají sekundy/minuty/hodiny dle pocet_kliku na Mode a spouští se zde stopky
 	 * 
-	 * @author Milan R�i�ka
+	 * @author Milan Růžička
 	 */
 	class Start extends AbstractAction {
 		private static final long serialVersionUID = 1L;
@@ -186,15 +191,15 @@ public class Hlavni extends JFrame {
 	
 		public Start() {
 	        putValue(NAME, "Start");
-	        putValue(SHORT_DESCRIPTION, "Zm�na hodnoty o +1, nebo spu�t�n� stopek (ALT+A)");
+	        putValue(SHORT_DESCRIPTION, "Změna hodnoty o +1, nebo spuštění stopek (ALT+A)");
 	        putValue(MNEMONIC_KEY, new Integer(KeyEvent.VK_A));
 	    }
 	}
 	
 	/**
-	 * Zde se odeb�raj� sekundy/minuty/hodiny dle pocet_kliku na Mode a zastavuj�/nuluj� se zde stopky
+	 * Zde se odebírají sekundy/minuty/hodiny dle pocet_kliku na Mode a zastavují/nulují se zde stopky
 	 * 
-	 * @author Milan R�i�ka
+	 * @author Milan Růžička
 	 */
 	class Stop extends AbstractAction {
 		private static final long serialVersionUID = 1L;
@@ -229,7 +234,7 @@ public class Hlavni extends JFrame {
 	
 		public Stop() {
 	        putValue(NAME, "Stop");
-	        putValue(SHORT_DESCRIPTION, "Zm�na hodnoty o -1, nebo zastaven� stopek (ALT+S)");
+	        putValue(SHORT_DESCRIPTION, "Změna hodnoty o -1, nebo zastavení stopek (ALT+S)");
 	        putValue(MNEMONIC_KEY, new Integer(KeyEvent.VK_S));
 	    }
 	}
