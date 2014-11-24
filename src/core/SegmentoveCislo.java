@@ -143,7 +143,7 @@ public final class SegmentoveCislo {
      */
     public void vykresli(Graphics2D g2, int cislo, int pozice, Color barva, int index) {
         if (index == 3)
-            barva_pisma = Color.BLUE;
+            barva_pisma = Hlavni.barva_stopek;
         else
             barva_pisma = Hlavni.barva_hodin;
 

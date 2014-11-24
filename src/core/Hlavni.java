@@ -31,6 +31,8 @@ public final class Hlavni extends JFrame {
     private int vynulovani_stopek = 0;
     /** Defaultní barva dig. hodin */
     public static Color barva_hodin = Color.GREEN;
+    /** Defaultní barva stopek */
+    public static Color barva_stopek = Color.BLUE;
     /** Barva měněných hodnot */
     private final Color barva_hodnot = Color.RED;
     
@@ -138,7 +140,7 @@ public final class Hlavni extends JFrame {
                     break;
                 default: 
                     stopky.setMode(0);
-                    stopky.setBarva(Color.GREEN); 
+                    stopky.setBarva(barva_hodin); 
                     stopky.setIndex(0); 
                     stopky.repaint(); 
                     pocet_kliku = 0;
