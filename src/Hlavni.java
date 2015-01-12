@@ -14,7 +14,7 @@ import javax.swing.*;
 
 /**
  *
- * @author Milan RĹŻĹľiÄŤka, Nikolas Diesl
+ * @author Milan Růžička, Nikolas Diesl
  */
 public final class Hlavni extends JFrame {
 
@@ -28,27 +28,27 @@ public final class Hlavni extends JFrame {
      */
     private static Timer timer2;
     /**
-     * Panel s ÄŤasem/stopkama
+     * Panel s časem/stopkama
      */
     private Stopky stopky = new Stopky();
     /**
-     * PoÄŤet kliknutĂ­ na tlaÄŤĂ­tko Mode 0 = Def 1 = Sec 2 = Min 4 = Hod 5 = St
+     * Počet kliknutí na tlačítko Mode 0 = Def 1 = Sec 2 = Min 4 = Hod 5 = St
      */
     private int pocet_kliku = 0;
     /**
-     * PoÄŤet kliknutĂ­ na tlaÄŤĂ­tko Stop (pro vynulovĂˇnĂ­ stopek)
+     * Počet kliknutí na tlačítko Stop (pro vynulování stopek)
      */
     private static int vynulovani_stopek = 0;
     /**
-     * DefaultnĂ­ barva dig. hodin
+     * Defaultní barva dig. hodin
      */
     public static Color barva_hodin = Color.GREEN;
     /**
-     * DefaultnĂ­ barva stopek
+     * Defaultní barva stopek
      */
     public static Color barva_stopek = Color.BLUE;
     /**
-     * Barva mÄ›nÄ›nĂ˝ch hodnot
+     * Barva měněných hodnot
      */
     private final Color barva_hodnot = Color.RED;
 
@@ -93,7 +93,7 @@ public final class Hlavni extends JFrame {
     public static int casovac = 0;
 
     /**
-     * Konstruktor HlavnĂ­ tĹ™Ă­dy, nadefinovĂˇnĂ­ vzhledu okna a bÄ›ĹľĂ­ zde timer pro
+     * Konstruktor Hlavní třídy, nadefinování vzhledu okna a běží zde timer pro
      * dig. hodiny
      */
     public Hlavni() {
@@ -113,12 +113,12 @@ public final class Hlavni extends JFrame {
         timer1.schedule(new TimerTask() {
             @Override
             public void run() {
-                // .getTime().getTime() je tu proto aby mi to vrĂˇtilo milisekundy
-                // jenom .getTime() vrĂˇtĂ­ ÄŤas ve formĂˇtu Time (mĹŻj getter ze tĹ™Ă­dy Stopky)
+                // .getTime().getTime() je tu proto aby mi to vrátilo milisekundy
+                // jenom .getTime() vrátí čas ve formátu Time (můj getter ze třídy Stopky)
                 casovac += 10;
                 konecnyAutomat(pocet_kliku, stopky);
                 stopky.setTime(new Time(getTimeInMilisec()));
-                //aby se ÄŤas pĹ™ekresoval tam kde mĂˇ (lze poznat dle konzole Ĺľe to funguje)
+                //aby se čas překresoval tam kde má (lze poznat dle konzole že to funguje)
                 if (stopky.getMode() == 0) {
                     stopky.repaint();
                 }
@@ -127,9 +127,9 @@ public final class Hlavni extends JFrame {
     }
 
     /**
-     * LevĂ˝ panel se tlaÄŤĂ­tkem Mode
+     * Levý panel se tlačítkem Mode
      *
-     * @return Panel s tlaÄŤĂ­tkem Mode
+     * @return Panel s tlačítkem Mode
      */
     final Component levaTlacitka() {
 
@@ -145,9 +145,9 @@ public final class Hlavni extends JFrame {
     }
 
     /**
-     * PravĂ˝ panel s tlaÄŤĂ­tky Start a Stop
+     * Pravý panel s tlačítky Start a Stop
      *
-     * @return Panel s tlaÄŤĂ­tky Start a Stop
+     * @return Panel s tlačítky Start a Stop
      */
     Component pravaTlacitka() {
 
@@ -166,10 +166,10 @@ public final class Hlavni extends JFrame {
     }
 
     /**
-     * SlouĹľĂ­ k pĹ™epĂ­nĂˇnĂ­ mezi stavy aplikace (mÄ›nĂ­ se barviÄŤky, pocet_kliku -
-     * pro tlaÄŤĂ­tka Start/Stop)
+     * Slouží k přepínání mezi stavy aplikace (mění se barvičky, pocet_kliku -
+     * pro tlačítka Start/Stop)
      *
-     * @author Milan RĹŻĹľiÄŤka
+     * @author Milan Růžička
      */
     class Mode extends AbstractAction {
 
@@ -214,7 +214,7 @@ public final class Hlavni extends JFrame {
 
         public Mode() {
             putValue(NAME, "Mode");
-            putValue(SHORT_DESCRIPTION, "PĹ™epnutĂ­ reĹľimu stopek (ALT+M)");
+            putValue(SHORT_DESCRIPTION, "Přepnutí režimu stopek (ALT+M)");
             putValue(MNEMONIC_KEY, KeyEvent.VK_M);
         }
     }
@@ -222,7 +222,7 @@ public final class Hlavni extends JFrame {
     /**
      * Posle zpravu ze bylo stisknuto tlacitko
      *
-     * @author Milan RĹŻĹľiÄŤka, Nikolas Diesl
+     * @author Milan Růžička, Nikolas Diesl
      */
     class Start extends AbstractAction {
 
@@ -235,7 +235,7 @@ public final class Hlavni extends JFrame {
 
         public Start() {
             putValue(NAME, "Start");
-            putValue(SHORT_DESCRIPTION, "ZmÄ›na hodnoty o +1, nebo spuĹˇtÄ›nĂ­ stopek (ALT+A)");
+            putValue(SHORT_DESCRIPTION, "Změna hodnoty o +1, nebo spuštění stopek (ALT+A)");
             putValue(MNEMONIC_KEY, KeyEvent.VK_A);
         }
     }
@@ -243,7 +243,7 @@ public final class Hlavni extends JFrame {
     /**
      * Posle zpravu, ze bylo toto tlacitko stiknuto
      *
-     * @author Milan RĹŻĹľiÄŤka, Nikolas Diesl
+     * @author Milan Růžička, Nikolas Diesl
      */
     class Stop extends AbstractAction {
 
@@ -256,7 +256,7 @@ public final class Hlavni extends JFrame {
 
         public Stop() {
             putValue(NAME, "Stop");
-            putValue(SHORT_DESCRIPTION, "ZmÄ›na hodnoty o -1, nebo zastavenĂ­ stopek (ALT+S)");
+            putValue(SHORT_DESCRIPTION, "Změna hodnoty o -1, nebo zastavení stopek (ALT+S)");
             putValue(MNEMONIC_KEY, KeyEvent.VK_S);
         }
     }
@@ -278,7 +278,7 @@ public final class Hlavni extends JFrame {
     }
 
     /**
-     * VracĂ­ sekundy
+     * Vrací sekundy
      * @return sekundy
      *
      * @author Nikolas Diesl
@@ -288,7 +288,7 @@ public final class Hlavni extends JFrame {
     }
 
     /**
-     * VracĂ­ minuty
+     * Vrací minuty
      * @return minuty
      *
      * @author Nikolas Diesl
@@ -298,7 +298,7 @@ public final class Hlavni extends JFrame {
     }
 
     /**
-     * VracĂ­ hodiny
+     * Vrací hodiny
      * @return hodiny
      *
      * @author Nikolas Diesl
@@ -308,7 +308,7 @@ public final class Hlavni extends JFrame {
     }
 
     /**
-     * VracĂ­ milisekundy
+     * Vrací milisekundy
      * @return cas v milisekundach
      * @author Nikolas Diesl
      */

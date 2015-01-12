@@ -137,7 +137,7 @@ public final class SegmentoveCislo {
      * 
      * @param g2 Grafický kontext
      * @param cislo Požadované dvoučíslí z času které chceme vykreslit
-     * @param pozice Pozice na které chceme dvoučíslí vykreslit (hh:mm:ss) -> (0:1:2)
+     * @param pozice Pozice na které chceme dvoučíslí vykreslit (hh:mm:ss) - (0:1:2)
      * @param barva Barva části času (se kterou se manipuluje pomocí Start/Stop)
      * @param index Index části času (se kterou se manipuluje pomocí Start/Stop)
      */

@@ -18,7 +18,7 @@ import javax.swing.*;
  */
 public class Stopky extends JPanel {
     private static final long serialVersionUID = 1L;
-    /** Mód dig. hodin -> 0 = dig. hodiny, 1 = stopky */
+    /** Mód dig. hodin - 0 = dig. hodiny, 1 = stopky */
     private int mode = 0;
     /** aktuální nastavaný čas dig. hodin */
     private Time time = new Time(1000*60*60*(-1));
@@ -91,12 +91,12 @@ public class Stopky extends JPanel {
         if (mode == 0) {
             String cas = "" + dateFormat.format(time);
             SegmentoveCislo segmentoveCislo = new SegmentoveCislo(cas, g2, barva_hodnoty_kterou_menis, index);
-            System.out.println(cas);
+            //System.out.println(cas);
         }
         else if (mode == 1) {
             String cas = "" + dateFormat.format(stopky);
             SegmentoveCislo segmentoveCislo = new SegmentoveCislo(cas, g2, barva_hodnoty_kterou_menis, index);
-            System.out.println(cas);
+            //System.out.println(cas);
         }
     }
 }
