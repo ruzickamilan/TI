@@ -91,12 +91,18 @@ public class Stopky extends JPanel {
         if (mode == 0) {
             String cas = "" + dateFormat.format(time);
             SegmentoveCislo segmentoveCislo = new SegmentoveCislo(cas, g2, barva_hodnoty_kterou_menis, index);
+<<<<<<< HEAD
             //System.out.println(cas);
+=======
+>>>>>>> origin/master
         }
         else if (mode == 1) {
             String cas = "" + dateFormat.format(stopky);
             SegmentoveCislo segmentoveCislo = new SegmentoveCislo(cas, g2, barva_hodnoty_kterou_menis, index);
+<<<<<<< HEAD
             //System.out.println(cas);
+=======
+>>>>>>> origin/master
         }
     }
 }
